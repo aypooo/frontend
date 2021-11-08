@@ -1,0 +1,109 @@
+.container{
+    background-color: aquamarine;
+    /* display: flex; */
+    display: inline-flex;
+    height: 400px;
+    width: 500px;
+    /* flex-direction: row; */
+	/* flex-direction: column; */
+	/* flex-direction: row-reverse; */
+	/* flex-direction: column-reverse; */
+    /* flex-wrap: nowrap; */
+	/* flex-wrap: wrap; */
+	/* flex-wrap: wrap-reverse; */
+    /* flex-flow: row wrap; */
+    /* justify-content: flex-start; */
+	/* justify-content: flex-end; */
+	/* justify-content: center; */
+	/* justify-content: space-between; */
+	/* justify-content: space-around; */
+	/* justify-content: space-evenly; */
+    /* align-items: stretch; */
+	/* align-items: flex-start; */
+	/* align-items: flex-end; */
+	/* align-items: center; */
+	/* align-items: baseline; */
+    /* align-content: stretch; */
+	/* align-content: flex-start; */
+	/* align-content: flex-end; */
+	/* align-content: center; */
+	/* align-content: space-between; */
+	/* align-content: space-around; */
+	/* align-content: space-evenly; */
+}
+.item{
+ 
+    width: 100px;
+    height: 100px;
+    background-color: tomato;
+    margin: 10px;
+    /* flex-basis: auto;  */
+	/* flex-basis: 0; */
+	/* flex-basis: 50%; */
+	/* flex-basis: 300px; */
+	/* flex-basis: 10rem; */
+	/* flex-basis: content; */
+    /* flex-shrink: 1; 기본값 */
+    /* flex-shrink는 flex-basis보다 작아질 수 있는지를 결정하는 속성  */
+    /* flex-grow: 1; */
+    /* flex-grow는 flex-basis보다 커질 수 있는지를 결정하는 속성  */
+	/* flex-grow: 0; */ /* 기본값 */
+    /* flex: 1; */
+     /* flex는 위 3가지의 축약형 */
+	/* flex-grow: 1; flex-shrink: 1; flex-basis: 0%; */
+	/* flex: 1 1 auto; */
+	/* flex-grow: 1; flex-shrink: 1; flex-basis: auto; */
+	/* flex: 1 500px; */
+	/* flex-grow: 1; flex-shrink: 1; flex-basis: 500px; */
+    /* flex: 1 1 0%; */
+    /* align-self: auto; */
+	/* align-self: stretch; */
+	/* align-self: flex-start; */
+	/* align-self: flex-end; */
+	/* align-self: center; */
+	/* align-self: baseline; */
+}
+/* 1:2:1의 비율로 세팅할 경우 */
+.item:nth-child(0) { 
+    /* flex-grow: 1;  */
+    order: 3;
+    align-self: center;
+}
+.item:nth-child(1) { 
+    /* flex-grow: 2;  */
+    order: 2;
+    align-self: flex-end;
+}
+.item:nth-child(2) { 
+    /* flex-grow: 1;  */
+    order: 1;
+    align-self: baseline;
+}
+.item:nth-child(3) {
+    align-self: stretch;
+} 
+.item:nth-child(4) { 
+    align-self: flex-end;
+    z-index: 1;
+	transform: scale(2);
+}
+
+
+
+.parent{
+    background-color: tan;
+    margin-top: 50px;
+    width: 300px;
+    height: 200px;
+    position: relative;
+}
+
+.child{
+    height: 100px;
+    width: 100px;
+    background-color: teal;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
