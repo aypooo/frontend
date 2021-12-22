@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+.nav{
+    display: flex;
+    height: 100px;
+    width: 100%;
+    top:0;
+    position: fixed;
+    background-color: white;
+    justify-content:right;
+    align-items: center;
+    /* border: 2px solid red; */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 5px 5px rgba(0, 0, 0, 0.23);
+}
+#s_profile{
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+    border: 3px solid black;
+    overflow: hidden;
+}
+#s_profile img{
+    height: 100%;
+    width: 100%;
+   
+}
+
+.container{   
+    top: 100px;
+    display: flex;
+    width: 100%;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 5px solid magenta; */
+    background-color: white;
+}
+
+#header{
+    display: flex;
+    height: 300px;
+    width: 100%;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: row;
+    border: 2px solid blue;
+    margin-top: 50px;
+    
+}
+#profile{
+    height: 200px;
+    width: 200px;
+    border-radius: 30px;
+    border: 3px solid black;
+    overflow: hidden;
+}
+#profile img{
+    height: 100%;
+    width: 100%;
+}
+#search{
+   
+
+}
+
+#galley{
+    display: flex;
+    padding: 0;
+    width: 100%;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 2px solid blue;
+}
+.row{
+    display: flex;
+    width: 100%;
+    height:300px;
+    flex-direction: row;
+    justify-content:center;
+    margin-bottom: 20px;
+    border: 2px solid red;
+    vertical-align: baseline;
+}
+.item{
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+   
+    max-width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
+   
+    /* border: 2px solid green; */
+    margin: 5px;
+  
+    overflow: hidden;
+}
+.photo{
+    height: 300px;
+    overflow: hidden;
+  
+}
+.photo img{
+    width: 100%;
+    height: 100%;
+
+}
+
+
+@media screen and (max-width: 1100px){
+    
+}
