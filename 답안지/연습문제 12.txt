@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 연습</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Carosel</h1>
+    <div id='photo-container'>
+        <div id="photos">
+            <div class='photo'>
+                <img src='caurosel-photo-1.jpg'/>
+            </div>
+            <div class="photo">
+                <img src='caurosel-photo-2.jpg'/>
+            </div>
+            <div class="photo">
+                <img src='caurosel-photo-3.jpg'/>
+            </div>
+            <div class="photo">
+                <img src='caurosel-photo-4.jpg'/>
+            </div>
+            <div class="photo">
+                <img src='caurosel-photo-5.jpg'/>
+            </div>
+        </div>
+    </div>
+    <div id='selection'>
+        <div class="options" id='0'></div>
+        <div class="options" id='1'></div>
+        <div class="options" id='2'></div>
+        <div class="options" id='3'></div>
+        <div class="options" id='4'></div>
+    </div>
+    <script src='app.js'></script>
+</body>
+</html>
+
+
+
+const photos = document.getElementById('photos')
+const photoItems = photos.querySelectorAll('.photo')
+const options = document.querySelectorAll('.options')
+const selection = document.getElementById('selection')
+
+let timerID = null
+let cnt = 0
+let prevOption = 0
+
+function changeSelector(){
+     // 셀렉터 구현부분
+     options[prevOption].style.width = 20 + 'px' // 이전 셀렉터 초기화
+     options[cnt].style.width = 50 + 'px' // 현재 셀렉터 변경
+     options[cnt].style.borderRaidus = '5px'
+     prevOption = cnt // 현재 셀렉터 인덱스 저장
+}
+
+function changePosition(){
+    cnt = cnt === photoItems.length - 1 ? 0 : cnt + 1
+    photos.style.marginLeft = cnt * -500 + 'px'
+    changeSelector()
+}
+
+function startCarousel(){
+    timerID = setInterval(changePosition, 1000)
+}
+
+function stopCarousel(){
+    clearInterval(timerID)
+}
+
+function changePhoto(e){
+    const target = e.target
+    if(target.className === 'options'){
+        cnt = parseInt(target.id) - 1
+        changePosition()
+    }
+}
+
+photos.addEventListener('mouseenter', startCarousel)
+photos.addEventListener('mouseleave', stopCarousel)
+
+selection.addEventListener('click', changePhoto)

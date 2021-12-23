@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 연습</title>
+    <link rel='stylesheet' href='style.css'/>
+</head>
+<body>
+    <button id='open-btn'>open sidebar</button>
+    <div class="sidebar">
+        <div class="menu">HOME</div>
+        <div class="menu">ABOUT</div>
+        <div class="menu">CONTACT</div>
+        <div class="menu">DETAIL</div>
+        <div class="menu">SETTING</div>
+    </div>
+    <script src='app.js'></script>
+</body>
+</html>
+
+
+
+.sidebar{
+    width: 30%;
+    height: 100vh;
+    position: absolute;
+    left: -30%;
+    top: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.7s ease-in-out;
+}
+.show{
+    left: 0px;
+}
+.menu{
+    width: 100%;
+    flex: 1;
+    background-color: peru;   
+    font-size: 1.5rem; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightgoldenrodyellow;
+    border-bottom: 1px solid lightgoldenrodyellow;
+}
+.menu:hover{
+    color: peru;
+    background-color: lightgoldenrodyellow;
+}
+
+
+
+const openBtn = document.getElementById('open-btn')
+const sidebar = document.querySelector('.sidebar')
+let timerID = null
+
+function hideSidebar(){
+    sidebar.classList.remove('show')
+    clearTimeout(timerID)
+}
+function openSidebar(){
+    sidebar.classList.add('show')
+
+    timerID = setTimeout(hideSidebar, 3000)
+}
+
+openBtn.addEventListener('click', openSidebar)

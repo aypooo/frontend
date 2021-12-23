@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 연습</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id='text-box'>
+        <p></p>
+    </div>
+    <script src='app.js'></script>
+</body>
+</html>
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#text-box{
+    width: 800px;
+    height: 100px;
+    line-height: 100px;
+    margin: 100px auto;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background-color: thistle;
+    transition: all .5s;
+}
+
+
+
+const textBox = document.querySelector('#text-box p')
+const text = 'You are watching text now !'
+let index = 0
+let timerID = null
+
+function displayCharacter(){
+    console.log(index)
+    textBox.innerHTML += text[index]
+    index++
+    if(index > text.length - 1){
+        console.log('timer ended: ', index)
+        clearInterval(timerID)
+    }
+}
+function startTextAnimation(){
+    timerID = setInterval(displayCharacter, 500);
+}
+
+window.addEventListener('load', startTextAnimation)

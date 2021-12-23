@@ -1,0 +1,22 @@
+const boxes = document.querySelectorAll('.box')
+let select = 0
+let prevSelect = 0
+
+function moveBox(){
+    const prevBox = boxes[prevSelect]
+    const box = boxes[select]
+
+    prevBox.style.marginBottom = 0 + 'px'
+    box.style.marginBottom = 50 + 'px'
+
+    prevSelect = select
+    select++
+    if(select > boxes.length - 1){
+        select = 0
+    }
+}
+function startMove(){
+    setInterval(moveBox, 500)
+}
+
+window.addEventListener('load', startMove)

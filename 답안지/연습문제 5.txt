@@ -1,0 +1,14 @@
+function moveCircle(e){
+    const circle = document.createElement('circle')
+    circle.className = 'circle'
+
+    console.log(e.clientX, e.clientY)
+    const mouseX = e.clientX
+    const mouseY = e.clientY
+    circle.style.left = mouseX + 'px'
+    circle.style.top = mouseY + 'px'
+
+    document.body.appendChild(circle)
+}
+
+window.addEventListener('click', moveCircle)

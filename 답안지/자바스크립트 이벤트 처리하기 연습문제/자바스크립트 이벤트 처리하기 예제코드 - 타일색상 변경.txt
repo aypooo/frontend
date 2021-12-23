@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 연습</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>랜덤으로 타일의 색상 변경하기</h1>
+    <div id='tile-container'>
+       <div class="tile"></div>
+       <div class="tile"></div>
+       <div class="tile"></div>
+       <div class="tile"></div>
+       <div class="tile"></div>
+       <div class="tile"></div>
+       <div class="tile"></div>
+       <div class="tile"></div>
+       <div class="tile"></div> 
+    </div>
+    <script src='app.js'></script>
+</body>
+</html>
+
+
+body{
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tile-container{
+    width: 600px;
+    height: 600px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.tile{
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    border: 1px solid skyblue;
+}
+
+
+
+const tiles = document.querySelectorAll('.tile')
+console.log(tiles)
+
+function getRandomColor(){
+    const red = Math.floor(Math.random() * 256)
+    const green = Math.floor(Math.random() * 256)
+    const blue = Math.floor(Math.random() * 256)
+    return `rgb(${red}, ${green}, ${blue})`
+}
+function changeBackground(e){
+    e.target.style.background = getRandomColor()
+}
+
+for(let tile of tiles){
+    console.log(tile)
+    tile.addEventListener('click', changeBackground)
+}

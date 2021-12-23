@@ -1,0 +1,15 @@
+const colorBox = document.querySelector('.color-box')
+const colorInput = document.getElementById('color-input')
+console.log(colorInput)
+
+function pickRandomColor(){
+    return Math.floor(Math.random()*256)
+}
+
+function setColor(e){
+    console.log(e.target.value)
+
+    colorBox.style.backgroundColor = `rgb(${pickRandomColor()}, ${pickRandomColor()}, ${pickRandomColor()})`
+}
+
+colorInput.addEventListener('input', setColor)
